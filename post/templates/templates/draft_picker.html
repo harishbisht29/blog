@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-4 offset-4 mb-5 mt-5">
+    <h3 style="text-align: center;">Select Template</h3>
+    <form action="." method="POSt" >
+        <select name="template_selector" class="form-control" id="template_selector">
+            <option>{{ new_post }}</option>
+            {% for template in templates %}
+            <option>{{ template.title }}</option>
+            {% endfor %}
+          </select>
+        {% csrf_token %}
+    
+         <button style="margin:auto;display: block;" class=" mt-4 btn btn-primary" type="submit">Create</button>
+         
+    </form>
+</div>
+
+{% endblock content %}

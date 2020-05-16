@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{%static 'css/signin.css' %}">
+<div class="container">
+    <div class="row">
+      <!-- Latest Posts -->
+      <main class="post blog-post col-lg-10" style="margin: auto;"> 
+        <div class="container">
+          <div class="row">
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+                  <!-- Tabs Titles -->
+                 {% if message %}
+                 <h2 style="color:rgb(31, 167, 121)" class="active">{{ message }}</h2>
+                 <br>
+                 {% endif %}
+                  <h2 class="active"> Sign In </h2>
+              
+                  <!-- Icon -->
+
+              
+                  <!-- Login Form -->
+                  <form>
+                    {% csrf_token %}
+                    <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+                    <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+                    <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+                    
+                    <input type="submit" class="fadeIn fourth" value="Log In">
+                  </form>
+              
+                  <!-- Remind Passowrd -->
+                  <div id="formFooter">
+                    <a class="underlineHover" href="#">Forgot Password?</a>
+                  </div>
+                  <a id="signup" href="{% url 'signup'%}">Not Registerd Signup Here</a>
+              
+                </div>
+              </div>
+          </div>
+        </div>
+      </main>
+
+    </div>
+  </div>
+{% endblock content %}

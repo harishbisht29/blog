@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{%static 'css/account.css' %}">
+<div class="container">
+    <div class="row">
+      <!-- Latest Posts -->
+      <main class="post blog-post col-lg-10" style="margin: auto;"> 
+        <div class="container">
+          <div class="row">
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+                  <!-- Tabs Titles -->
+                  <h2 class="active"> Sign Up </h2>
+              
+                  <!-- Icon -->
+                  <!-- Login Form -->
+                  <form method="POST" action="." enctype="multipart/form-data" >
+                    {% csrf_token %}
+                    <!-- <input type="text" id="login" class="fadeIn second" name="username" placeholder="username">
+                    <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+                    <input type="password" id="confirm_password" class="fadeIn third" name="confirm_password" placeholder="confirm password">
+                    <input type="email" name="useremail" id="useremail" placeholder="Email Address (will not be published)"  class="fadeIn third">
+                    <input type="file" name="avatar">
+                    <input type="submit" class="fadeIn fourth" value="Signup"> -->
+                    {{form}}
+                    <input type="submit" class="fadeIn fourth" value="Signup"> 
+                  </form>
+              
+                  <a id="signup" href="{% url 'signin-url' %}">Signin Here</a>
+              
+                </div>
+              </div>
+          </div>
+        </div>
+      </main>
+
+    </div>
+  </div>
+{% endblock content %}

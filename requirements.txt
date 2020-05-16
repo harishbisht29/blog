@@ -1,0 +1,7 @@
+Django==2.2.12
+django-crispy-forms==1.9.1
+django-tinymce4-lite==1.8.0
+jsmin==2.2.2
+Pillow==7.1.2
+pytz==2020.1
+sqlparse==0.3.1
