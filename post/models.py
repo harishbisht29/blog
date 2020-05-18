@@ -64,10 +64,10 @@ class Post(models.Model):
 
     created_timestamp = models.DateTimeField(auto_now=True)
     modified_timestamp = models.DateTimeField(auto_now_add=True)
-    feature_image = models.ImageField(blank=True)
-    cover = models.ImageField(blank=True)
-    thumbnail = models.ImageField(blank=True)
-    thumbnail_small = models.ImageField(blank=True)
+    feature_image = models.ImageField(upload_to='posts/', blank=True, default='defaults/blog_featured.jpg')
+    cover = models.ImageField(upload_to='posts/', blank=True, default='defaults/blog_cover.jpg')
+    thumbnail = models.ImageField(upload_to='posts/', blank=True, default='defaults/blog_thumbnail.jpg')
+    thumbnail_small = models.ImageField(upload_to='posts/', blank=True, default='defaults/blog_small_thumnnail.jpg')
     previous_post = models.ForeignKey('self'\
         ,related_name='whose_previous_post',\
         on_delete=models.SET_NULL, blank=True, null=True)
