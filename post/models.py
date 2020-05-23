@@ -5,6 +5,7 @@ from tinymce import HTMLField
 from django.template.defaultfilters import slugify
 from django.urls import reverse
 from account.models import Account
+from django.db.models import F
 
 User = get_user_model() 
     
@@ -52,6 +53,11 @@ class Comment(models.Model):
 class PostView(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
     post = models.ForeignKey('Post', on_delete=models.CASCADE)
+    count = models.IntegerField(default=0)
+
+    def addView(self):
+        self.count= F('count')+1
+        self.save()
 
     def __str__(self):
         return self.user.email + ' viewed ' + self.post.slug
@@ -80,7 +86,11 @@ class Post(models.Model):
     
     @property
     def view_count(self):
-        return  PostView.objects.filter(post=self).count()
+        posts = PostView.objects.filter(post=self)
+        count= 0
+        for p in posts:
+            count = p.count+ count
+        return  count
     
     @property
     def comment_count(self):
