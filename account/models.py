@@ -60,3 +60,10 @@ class NonRegisteredAccount(models.Model):
     username= models.CharField(max_length=30)
     email= models.EmailField(verbose_name='email', max_length=60, unique=True )
     created_date= models.DateTimeField(verbose_name='date joined', auto_now_add=True)
+
+class SubAccount(models.Model):
+    email= models.EmailField(verbose_name='email', max_length=60, unique=True )
+    created_date= models.DateTimeField(verbose_name='date joined', auto_now_add=True)
+
+    def __str__(self):
+        return self.email

@@ -63,7 +63,8 @@ def postDetailView(request, slug):
         'category_count':category_count,
         'latest_posts':latest_posts,
         'post':post,
-        'form':form
+        'form':form,
+        'title':post.title
     }
     return render(request, 'templates/post.html',context)
 

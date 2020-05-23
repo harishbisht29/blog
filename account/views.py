@@ -10,6 +10,7 @@ def signupView(request):
         form = SignupForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+        form = SignupForm()
     else:
         form = SignupForm()
     context = {

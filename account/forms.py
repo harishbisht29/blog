@@ -1,5 +1,5 @@
 from django import forms
-from .models import Account
+from .models import Account, SubAccount
 
 class SigninForm(forms.Form):
     email=  forms.EmailField( widget=forms.TextInput(
@@ -37,3 +37,13 @@ class SignupForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+class SubAccountForm(forms.ModelForm):
+    email=  forms.EmailField( widget=forms.TextInput(
+        attrs={'type':'email',
+        'id':'email', 
+        'placeholder': 'Type your email address'}
+    ),label='')
+    class Meta:
+        model= SubAccount
+        fields=['email',]

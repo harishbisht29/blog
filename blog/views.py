@@ -3,14 +3,29 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.models import User
+from account.models import SubAccount
+from account.forms import SubAccountForm
+
 # from .models import Post, Author, PostView
 # from marketing.models import Signup
 # from .forms import CommentForm, PostForm
 
 def index(request):
+    title= "Let's Code Everything."
     context = {}
-    print("Requested User",request.user)
-    return render( request, 'index.html')
+    # print("Requested User",request.user)
+    if request.method == "POST":
+        form= SubAccountForm(request.POST)
+        if form.is_valid():
+            form.save()
+        form= SubAccountForm()
+    else:
+        form= SubAccountForm()
+
+    context= {'form':form
+    #  ,'title':title
+    }
+    return render( request, 'index.html', context)
 
 def signinView(request):
     context = {
