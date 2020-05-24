@@ -14,7 +14,8 @@ urlpatterns = [
     path('post/', include('post.urls')),
     path('signin/',signinView,name='signin'),
     path('signup/',signupView,name='signup'),
-    path('account/',include('account.urls'))
+    path('account/',include('account.urls')),
+    path('api/', include('api.urls'))
 
 ]
 
