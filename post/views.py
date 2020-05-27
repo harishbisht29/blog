@@ -42,7 +42,7 @@ def postDetailView(request, slug):
         form = CommentForm()
         user = User.objects.get(username="anonymous")
     
-    p= PostView.objects.filter(user= user)
+    p= PostView.objects.filter(user= user, post=post)
     if p:
         if not request.user.is_authenticated :
             p[0].addView()
