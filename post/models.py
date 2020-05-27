@@ -68,8 +68,8 @@ class Post(models.Model):
     content = HTMLField('Content')
     slug = models.SlugField(unique=True)
 
-    created_timestamp = models.DateTimeField(auto_now=True)
-    modified_timestamp = models.DateTimeField(auto_now_add=True)
+    created_timestamp = models.DateTimeField(auto_now_add=True)
+    modified_timestamp = models.DateTimeField(auto_now=True)
     feature_image = models.ImageField(upload_to='posts/', blank=True, default='defaults/blog_featured.jpg')
     cover = models.ImageField(upload_to='posts/', blank=True, default='defaults/blog_cover.jpg')
     thumbnail = models.ImageField(upload_to='posts/', blank=True, default='defaults/blog_thumbnail.jpg')

@@ -31,7 +31,7 @@
                 <div class="title"><span>{{ post.author.username }}</span></div>
               </a>
               <div class="d-flex align-items-center flex-wrap">
-                <div class="date"><i class="icon-clock"></i> {{ post.modified_timestamp | timesince }} ago</div>
+                <div class="date"><i class="icon-clock"></i> {{ post.created_timestamp | timesince }} ago</div>
                 <div class="views"><i class="icon-eye"></i> {{ post.view_count }}</div>
                 <div class="comments meta-last"><i class="icon-comment"></i>{{ post.comment_count }}</div>
               </div>
