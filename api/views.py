@@ -3,8 +3,9 @@ from django.http import JsonResponse
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .serializers import postSerializers
+from .serializers import postSerializers, searchKeywordsSerializers
 from post.models import Post
+from marketing.models import SearchKeywords
 
 @api_view(['GET'])
 def apiOverview(request):
@@ -25,3 +26,10 @@ def postDetail(request, pk):
     post= Post.objects.get(id=pk)
     serializer= postSerializers(post, many=False)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def getKeywords(request,source):
+    keywords= SearchKeywords.objects.all()
+    serializer= searchKeywordsSerializers(keywords, many=True)
+    return Response(serializer.data)
+

@@ -7,7 +7,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model() 
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm, CommentForm
-
+from marketing.models import LinkSouces
 
 
 # from marketing.models import Signup
@@ -27,7 +27,9 @@ def get_category_count():
     return queryset
 
 def postDetailView(request, slug):
-    
+    req_site= request.GET.get('source', '')
+    if req_site != '':
+        LinkSouces.objects.create(name=req_site)
     post = get_object_or_404(Post,slug=slug)
     latest_posts = Post.objects.filter(is_draft=False).order_by('-created_timestamp')[0:3] 
     category_count = get_category_count() 

@@ -9,7 +9,7 @@ from .views import (
     postSuggestView,
     )
 urlpatterns = [
-    path('post_detail/<slug:slug>/',postDetailView,name='post_detail'),
+    path('post_detail/<slug:slug>',postDetailView,name='post_detail'),
     path('post_list/',postListView,name='post_list'),
     path('create/', postCreateView, name='post_create'),
     path('update/<slug:slug>/',postUpdateView,name='post_update'),
