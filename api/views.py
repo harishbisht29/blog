@@ -28,7 +28,7 @@ def postDetail(request, pk):
     return Response(serializer.data)
 
 @api_view(['GET'])
-def getKeywords(request,source):
+def getKeywords(request):
     keywords= SearchKeywords.objects.all()
     serializer= searchKeywordsSerializers(keywords, many=True)
     return Response(serializer.data)
