@@ -5,10 +5,10 @@ from post.models import Post
 class SearchKeywords(models.Model):
     post= models.ForeignKey(Post, on_delete=models.CASCADE)
     keyword= models.CharField(max_length= 500)
-    url= models.TextField(max_length= 250, blank=True, default='https://www.codethemall.com')
+    url= models.URLField(max_length= 250, blank=True, default='https://www.codethemall.com')
 
     def save(self, *args, **kwargs):
-        self.url = 'https://www.codethemall.com/'+self.post.get_absolute_url()
+        self.url = 'https://www.codethemall.com'+self.post.get_absolute_url()
         super(SearchKeywords, self).save(*args, **kwargs)        
 
     def __str__(self):
