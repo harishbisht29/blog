@@ -112,6 +112,6 @@ class Post(models.Model):
         url= reverse('post_detail', kwargs={
             'slug':self.slug
         })
-        url= url+ "?source="+source
+        # url= url+ "?source="+source
         return url
 
