@@ -1354,9 +1354,10 @@ main.posts-listing .post-footer {
 .blog-post ol{
   padding:0;
   color:#444;
-
+  list-style-position: inside;
 }
 .blog-post li{
+  list-style-position: inside;
   padding:0;
   color:#444;
 }
