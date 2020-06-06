@@ -82,7 +82,7 @@ class Post(models.Model):
         on_delete=models.SET_NULL, blank=True, null=True)
     author = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='author_posts')
     categories = models.ManyToManyField(Category)
-    is_draft = models.BooleanField(default=False)
+    is_template = models.BooleanField(default=False)
     
     @property
     def view_count(self):

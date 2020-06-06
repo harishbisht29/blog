@@ -24,7 +24,7 @@ class PostForm(forms.ModelForm):
             ,'thumbnail_small'
             ,'categories'\
             ,'next_post','previous_post',\
-            'is_draft')  
+            'is_template')  
 
 class CommentForm(forms.ModelForm):
 

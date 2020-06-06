@@ -20,7 +20,7 @@ def get_author(user):
 
 def get_category_count():
     queryset = Post \
-        .objects.filter(is_draft=False) \
+        .objects.filter(is_template=False) \
         .values('categories__title') \
         .annotate(Count('categories__title'))
 
@@ -31,7 +31,7 @@ def postDetailView(request, slug):
     if req_site != '':
         LinkSouces.objects.create(name=req_site)
     post = get_object_or_404(Post,slug=slug)
-    latest_posts = Post.objects.filter(is_draft=False).order_by('-created_timestamp')[0:3] 
+    latest_posts = Post.objects.filter(is_template=False).order_by('-created_timestamp')[0:3] 
     category_count = get_category_count() 
     
     
@@ -81,7 +81,7 @@ def postListView(request):
         'post_list': post_list
         }
     else:
-        all_posts = Post.objects.filter(is_draft=False).    order_by('-created_timestamp')
+        all_posts = Post.objects.filter(is_template=False).    order_by('-created_timestamp')
         context = {
             'post_list':all_posts
             }
@@ -98,7 +98,7 @@ def postListView(request):
         paginated_list = paginator.page(paginator.num_pages)
 
     # Getting Top 3 Latest Post
-    latest_posts = Post.objects.filter(is_draft=False).order_by('-created_timestamp')[0:3] 
+    latest_posts = Post.objects.filter(is_template=False).order_by('-created_timestamp')[0:3] 
 
     # Getting Category Count 
     category_count = get_category_count() 
@@ -113,8 +113,28 @@ def postListView(request):
     }
     return render(request,'templates/post_list.html', context)
 
-def postCreateView(request):
+def postCreateView(request, template_id=-1):
     title='Create'
+
+    if template_id != -1:
+        post= get_object_or_404(Post, id= template_id)
+        post.id= None
+        post.slug= ""
+        post.title= ""
+        post.is_template= False
+        post.overview= ""
+        form= PostForm(instance= post)
+        context = {
+            'form':form,
+            'page_type':title
+            }
+        return render(request, 'templates/post_create.html',context)
+
+        print("post creating from template",post)
+        
+        
+
+    
     form= PostForm(request.POST or None , request.FILES or None)
     if request.method == "POST":
         if form.is_valid():
@@ -128,6 +148,24 @@ def postCreateView(request):
         'page_type':title
     }
     return render(request, 'templates/post_create.html',context)
+
+def postTemlatePickerView(request):
+    
+    template_id= request.GET.get('template_id')
+    if template_id is None:
+        print("No Template Selected")
+    else:
+        print("Selected Template", template_id)
+        return redirect(reverse("post_create", kwargs={
+                'template_id':template_id
+            }))
+    
+    all_posts = Post.objects.filter(is_template=True).order_by('-created_timestamp')
+    context = {
+    'post_list':all_posts
+    }
+    
+    return render(request, 'templates/template_picker.html',context)
 
 def postUpdateView(request, slug):
     # Fetch Post From Model
