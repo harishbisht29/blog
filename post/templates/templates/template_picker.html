@@ -2,7 +2,8 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="container">
-  <div class="row">
+  <div class="row" style="flex-direction: column;">
+    <a style="text-decoration:underline; color: blue; cursor: pointer; text-align: end;" href="{% url 'post_create' %}">Create a new article</a>
     <!-- Latest Posts -->
     <main class="posts-listing col-lg-10" style="margin:auto; padding-bottom: 0;">
       <div class="container">
