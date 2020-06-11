@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
+
 <div class="container">
-  <div class="row" style="flex-direction: column;">
-    <a style="text-decoration:underline; color: blue; cursor: pointer; text-align: end;" href="{% url 'post_create' %}">Create a new article</a>
+  <a style="text-decoration:underline; color:black; cursor: pointer;" href="{% url 'post_create' %}"></a">Create a new article</a>
+
+  <div class="row">
     <!-- Latest Posts -->
     <main class="posts-listing col-lg-10" style="margin:auto; padding-bottom: 0;">
       <div class="container">
+        <h3 class="mb-4" style="text-align: center; color:rgb(13, 122, 113)">Pick a template</h3>
+
         <div class="row">
           <!-- post             -->
           {% for post in post_list %}
