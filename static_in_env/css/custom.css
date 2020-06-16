@@ -16,6 +16,9 @@
     color:rgb(0, 140, 255);
 
 }
+.round-border{
+    border-radius: 5px;
+}
 
 img{
     border-radius: 5px;

@@ -42,6 +42,7 @@ class SubAccountForm(forms.ModelForm):
     email=  forms.EmailField( widget=forms.TextInput(
         attrs={'type':'email',
         'id':'email', 
+        'class':'round-border',
         'placeholder': 'Type your email address'}
     ),label='')
     class Meta:

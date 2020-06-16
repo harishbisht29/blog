@@ -44,9 +44,10 @@ def index(request):
     else:
         form= SubAccountForm()
 
-    context= {'form':form,
+    context= {'subform':form,
     'latest_posts':latest_posts,
     'featured_posts':featured_posts,
+    'showGallery':True
     #  ,'title':title
     }
     return render( request, 'index.html', context)

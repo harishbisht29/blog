@@ -7,9 +7,11 @@
 
     {%block content%}
     {% endblock content %}
-
-    {% include "footer.html" %}
+    {%include "newsletter.html" with form=subform%}
+    {%include "gallery.html"%}
+    {% include "footer.html" with latest_posts=latest_posts%}
     {% include "scripts.html" %}
+
 </body>
 
 </html>
