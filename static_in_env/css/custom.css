@@ -1,55 +1,18 @@
 /* your styles go here */
 /* Table of contents styles */
-#table-of-contents{
-    border: solid 1px rgb(160, 160, 160);
-    padding:.5rem;
-    background-color: rgb(233, 233, 233);
-    border-radius: 5px;
-}
-#table-of-contents p{
-    text-decoration: underline;
-    font-weight: bold;
-}
-#table-of-contents li:hover{
-    cursor: pointer;
-    text-decoration: underline;
-    color:rgb(0, 140, 255);
 
-}
 .round-border{
     border-radius: 5px;
 }
 .highliter{
     color:rgb(121, 241, 167);
 }
+
 #active-tab{
    color:rgb(35, 75, 150); 
    font-weight: bold;
 }
 img{
     border-radius: 5px;
-}
-
-.full-image{
-        width: 100%;
-        height: auto;  
-}
-
-.half-image{
-    width: 50vw;
-    height:auto;
-}
-@media screen and (min-width: 320px) and (max-width: 480px){
-    /* styles */
- 
-    .full-image img{
-        width: 100%;
-        height: auto;
-    }
-    .half-image
-    {
-        width: 100%;
-        height: auto;
-    }
 }
 
