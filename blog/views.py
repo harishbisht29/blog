@@ -11,6 +11,7 @@ from post.models import Post
 # from marketing.models import Signup
 # from .forms import CommentForm, PostForm
 
+
 def getFeaturedPost():
     posts= Post.objects.filter(is_template=False)
     pview_map= [(p.id, p.view_count) for p in posts]
@@ -31,8 +32,7 @@ def index(request):
     latest_posts= Post.objects.filter(is_template=False).order_by('-created_timestamp')[0:3] 
     featured_posts= getFeaturedPost()
     print(featured_posts)
-    
-        
+            
 
     print(featured_posts)
     # print("Requested User",request.user)
@@ -47,7 +47,8 @@ def index(request):
     context= {'subform':form,
     'latest_posts':latest_posts,
     'featured_posts':featured_posts,
-    'showGallery':True
+    'showGallery':True,
+    'tabName':'Home'
     #  ,'title':title
     }
     return render( request, 'index.html', context)

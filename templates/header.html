@@ -30,10 +30,10 @@
       <!-- Navbar Menu -->
       <div id="navbarcollapse" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-
-          <li class="nav-item"><a href="/" class="nav-link ">Home</a>
+          
+          <li class="nav-item" ><a href="/" {% if tabName == 'Home' %} id="active-tab" {% endif %} class="nav-link ">Home</a>
           </li>
-          <li class="nav-item"><a href="{% url 'post_list' %}" class="nav-link">Blog</a>
+          <li class="nav-item"><a href="{% url 'post_list' %}" {% if tabName == 'Blog' %} id="active-tab" {% endif %} class="nav-link">Blog</a>
           </li>
           {% if not user.is_authenticated %}
           <li class="nav-item"><a href="{% url 'signin-url' %}" class="nav-link ">Login</a>
@@ -41,11 +41,11 @@
 
           </li>
           {% else %}
-          <li class="nav-item"><a href="{% url 'post_template_picker' %}" class="nav-link ">Create</a>
-          <li class="nav-item"><a href="{% url 'signout-url' %}" class="nav-link ">Logout</a>
-          <li class="nav-item"><a href="{% url 'post_list' %}" class="nav-link"><i class="fa fa-user"
+          <li class="nav-item"><a href="{% url 'post_template_picker' %}" {% if tabName == 'Create' %} id="active-tab" {% endif %} class="nav-link ">Create</a>
+          <li class="nav-item"><a href="{% url 'signout-url' %}" {% if tabName == 'Logout' %} id="active-tab" {% endif %} class="nav-link ">Logout</a>
+          <!-- <li class="nav-item"><a href="{% url 'post_list' %}" class="nav-link"><i class="fa fa-user"
                 aria-hidden="true"></i></a>
-          </li>
+          </li> -->
           {% endif %}
           <li class="nav-item"><a href="#" class="nav-link ">Contact</a>
           </li>

@@ -108,7 +108,8 @@ def postListView(request):
         'latest_posts':latest_posts,
         'post_list': paginated_list,
         'page_request_var':page_request_var,
-        'search_text':search_text
+        'search_text':search_text,
+        'tabName':'Blog',
         
     }
     return render(request,'templates/post_list.html', context)
@@ -145,7 +146,8 @@ def postCreateView(request, template_id=-1):
             }))
     context = {
         'form':form,
-        'page_type':title
+        'page_type':title,
+        'tabName':'Create',
     }
     return render(request, 'templates/post_create.html',context)
 
@@ -162,7 +164,9 @@ def postTemlatePickerView(request):
     
     all_posts = Post.objects.filter(is_template=True).order_by('-created_timestamp')
     context = {
-    'post_list':all_posts
+    'post_list':all_posts,
+    'tabName':'Create',
+
     }
     
     return render(request, 'templates/template_picker.html',context)
