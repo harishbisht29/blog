@@ -8,7 +8,7 @@ User = get_user_model()
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm, CommentForm
 from marketing.models import LinkSouces
-
+from .autostyles import AutoStyles
 
 # from marketing.models import Signup
 
@@ -60,7 +60,7 @@ def postDetailView(request, slug):
             form.instance.post = post
             form.save()
             return redirect(reverse("post_detail", kwargs={'slug':slug}))
-    
+    print(type(post.content))
     context = {
         'category_count':category_count,
         'latest_posts':latest_posts,

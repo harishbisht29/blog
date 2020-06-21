@@ -17,6 +17,30 @@
     color:rgb(0, 140, 255);
 
 }
+.toc{
+    border: solid 1px rgb(160, 160, 160);
+    padding:.5rem;
+    background-color: rgb(233, 233, 233);
+    border-radius: 5px;
+    display: block;
+}
+.toc p{
+    text-decoration: underline;
+    font-weight: bold;
+}
+.toc a{
+    color:inherit;
+}
+.toc a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color:rgb(0, 140, 255);
+
+}
+.highlighter{
+    /* color:rgb(0, 0, 0); */
+    background-color: khaki;
+}
 #post-links{
     color:rgb(0, 140, 255);
     cursor: pointer;
@@ -38,7 +62,7 @@ height:auto;
 
 .full-image img{
     width: 100%;
-    height: auto;
+    /* height: auto;/////////////////////////////// */
 }
 .half-image
 {

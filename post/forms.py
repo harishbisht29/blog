@@ -1,7 +1,7 @@
 from django import forms
 from tinymce import TinyMCE
 from .models import Post, Comment
-
+from .autostyles import AutoStyles
 class TinyMCEWidget(TinyMCE):
     def use_required_attribute(self, *args):
         return False
@@ -26,6 +26,12 @@ class PostForm(forms.ModelForm):
             ,'next_post','previous_post',\
             'is_template')  
 
+    def clean_content(self):
+        print("---------------Cleaning content---------------")
+        c= self.cleaned_data['content']
+        styled_content= AutoStyles(c).getStyledContent()
+        return styled_content
+        
 class CommentForm(forms.ModelForm):
 
     content= forms.CharField(label='',widget= forms.Textarea(attrs={
