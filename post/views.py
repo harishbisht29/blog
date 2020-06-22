@@ -31,6 +31,8 @@ def postDetailView(request, slug):
     if req_site != '':
         LinkSouces.objects.create(name=req_site)
     post = get_object_or_404(Post,slug=slug)
+    post.content= AutoStyles(post.content).getStyledContent()
+
     latest_posts = Post.objects.filter(is_template=False).order_by('-created_timestamp')[0:3] 
     category_count = get_category_count() 
     

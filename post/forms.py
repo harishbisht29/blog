@@ -26,11 +26,11 @@ class PostForm(forms.ModelForm):
             ,'next_post','previous_post',\
             'is_template')  
 
-    def clean_content(self):
-        print("---------------Cleaning content---------------")
-        c= self.cleaned_data['content']
-        styled_content= AutoStyles(c).getStyledContent()
-        return styled_content
+    # def clean_content(self):
+    #     print("---------------Cleaning content---------------")
+    #     c= self.cleaned_data['content']
+    #     styled_content= AutoStyles(c).getStyledContent()
+    #     return styled_content
         
 class CommentForm(forms.ModelForm):
 

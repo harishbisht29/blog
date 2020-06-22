@@ -1,22 +1,3 @@
-#table-of-contents{
-    border: solid 1px rgb(160, 160, 160);
-    padding:.5rem;
-    background-color: rgb(233, 233, 233);
-    border-radius: 5px;
-}
-#table-of-contents p{
-    text-decoration: underline;
-    font-weight: bold;
-}
-#table-of-contents a{
-    color:inherit;
-}
-#table-of-contents a:hover{
-    cursor: pointer;
-    text-decoration: underline;
-    color:rgb(0, 140, 255);
-
-}
 .toc{
     border: solid 1px rgb(160, 160, 160);
     padding:.5rem;
