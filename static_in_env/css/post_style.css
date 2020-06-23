@@ -1,7 +1,7 @@
 .toc{
     border: solid 1px rgb(160, 160, 160);
     padding:.5rem;
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(221, 238, 240);
     border-radius: 5px;
     display: block;
 }
@@ -15,7 +15,7 @@
 .toc a:hover{
     cursor: pointer;
     text-decoration: underline;
-    color:rgb(0, 140, 255);
+    color:rgb(19, 99, 12);
 
 }
 .highlighter{
