@@ -27,10 +27,11 @@ body {
 strong {
   font-weight: 700;
 }
-
+/* Removing the span styles for inline autostyles class */
 a,
-i,
-span {
+i
+/* span  */
+{
   display: inline-block;
   text-decoration: none;
   -webkit-transition: all 0.3s;
