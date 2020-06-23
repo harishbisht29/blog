@@ -1350,7 +1350,7 @@ main.posts-listing .post-footer {
 .blog-post .post-body h4,
 .blog-post .post-body h5,
 .blog-post .post-body h6 {
-  color: #444;
+  color: rgb(48, 72, 80);
 }
 .blog-post ol{
   padding:0;
