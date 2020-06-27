@@ -16,3 +16,7 @@ img{
     border-radius: 5px;
 }
 
+#social-media{
+    display: flex;
+    justify-content: end;
+}

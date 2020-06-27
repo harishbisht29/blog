@@ -2,6 +2,9 @@
 {% load static%}
 {% block content%}
 <link rel="stylesheet" href="{%static 'css/post_style.css' %}">
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ef74437d065a327"></script>
+
 <div class="container">
   <div class="row">
 
@@ -47,16 +50,21 @@
                 <div class="views"><i class="icon-eye"></i> {{ post.view_count }}</div>
                 <div class="comments meta-last"><i class="icon-comment"></i>{{ post.comment_count }}</div>
               </div>
+              
             </div>
             <div class="post-body">
               {{ post.content | safe}}
-
+               <div id="social-media">
+                <a href="https://www.patreon.com/bePatron?u=37860426" data-patreon-widget-type="become-patron-button">Support Me</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+               </div>
+              
             </div>
             <div class="post-tags">
               {% for cat in post.categories.all %}
               <a href="#" class="tag">#{{ cat }}</a>
               {% endfor %}
             </div>
+            
             <div class="posts-nav d-flex justify-content-between align-items-stretch flex-column flex-md-row">
               {% if post.previous_post %}
               <a href="#" class="prev-post text-left d-flex align-items-center">
