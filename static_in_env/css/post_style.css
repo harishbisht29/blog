@@ -51,3 +51,8 @@ height:auto;
     height: auto;
 }
 }
+
+pre{
+    border: 1px solid rgb(161, 207, 209);
+    border-radius: 5px;
+}

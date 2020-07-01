@@ -10,10 +10,10 @@ html= '''
 <li>How</li>
 </ul>
 <p>{{{end}}}</p>
-<p>{{{highlight}}}Hello World {{{end}}}</p>
-<p><h4>Hello</h4></p>
-<p><h4>How</h4></p>
-<p><h4>Are</h4></p>
+<p>{{{highlight}}}Hello World :){{{end}}}</p>
+<p><h4>Hello:)</h4></p>
+<p><h4>How:(</h4></p>
+<p><h4>**) :| **)  emoji:tired emoji:money Are ;)</h4></p>
 </div>
 '''
 
@@ -42,6 +42,22 @@ class AutoStyles:
 
     def __init__(self, content):
         cleaned_content= self.clean(content)
+        #customization for emojis 
+        emoji_encodings= {
+            ':)':"&#x1F642;",
+            ":(":"&#x1F641;",
+            ".^_":"&#x1F928;",
+            "**)":"&#x1F929;",
+            ":|":"&#x1F610;",
+            "emoji:tired":"&#x1F62B;",
+            "emoji:sleepy":"&#x1F62A;",
+            "emoji:money":"&#x1F911;",
+            ";)":"&#x1F609;",
+
+
+        }
+        for k,v in emoji_encodings.items():
+            cleaned_content= cleaned_content.replace(k,v,100)
         self.soup= BeautifulSoup(cleaned_content,'html.parser')
     
     def tocCustomize(self,base_tag):
@@ -69,7 +85,7 @@ class AutoStyles:
         toc_tags= self.soup.findAll("span", {"class": "toc"})
         for t in toc_tags:
             self.tocCustomize(t)
-        pass
+        
 
     def getStyledContent(self):
         self.customize()

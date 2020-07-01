@@ -1,5 +1,9 @@
 /* your styles go here */
 /* Table of contents styles */
+pre{
+    border: 1px solid rgb(161, 207, 209);
+    border-radius: 5px;
+}
 
 .round-border{
     border-radius: 5px;
@@ -14,6 +18,8 @@
 }
 img{
     border-radius: 5px;
+    border: 1px solid rgb(161, 207, 209);
+
 }
 
 #social-media{
