@@ -26,3 +26,7 @@ img{
     display: flex;
     justify-content: end;
 }
+
+.post-single img{
+    width: 100%;
+}
