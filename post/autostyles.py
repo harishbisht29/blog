@@ -2,18 +2,7 @@ from bs4 import BeautifulSoup
 import re
 html= '''
 <div>
-<p>{{{toc}}}</p>
-<p>Hello World</p>
-<ul>
-<li>Hi</li>
-<li>there</li>
-<li>How</li>
-</ul>
-<p>{{{end}}}</p>
-<p>{{{highlight}}}Hello World :){{{end}}}</p>
-<p><h4>Hello:)</h4></p>
-<p><h4>How:(</h4></p>
-<p><h4>**) :| **)  emoji:tired emoji:money Are ;)</h4></p>
+<p>emoji:lol</p>
 </div>
 '''
 
@@ -53,7 +42,9 @@ class AutoStyles:
             "emoji:sleepy":"&#x1F62A;",
             "emoji:money":"&#x1F911;",
             ";)":"&#x1F609;",
-
+            "emoji:wave":"&#x1F44B",
+            "emoji:namaste":"&#x1F64F",
+            "emoji:lol":"&#x1F604"
 
         }
         for k,v in emoji_encodings.items():
