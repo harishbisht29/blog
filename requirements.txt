@@ -9,7 +9,7 @@ dnspython==1.16.0
 idna==2.9
 jsmin==2.2.2
 mysqlclient==1.4.6
-Pillow==7.1.2
+Pillow==8.1.1
 python-resize-image==1.1.19
 pytz==2020.1
 requests==2.23.0
